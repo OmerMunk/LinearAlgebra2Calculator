@@ -40,9 +40,37 @@ def matrix_transpose(matrix: list[list]):
     return square_matrix_transpose(matrix) if len(matrix) == len(matrix[0]) else non_square_matrix_transpose(matrix)
 
 
-def matrix_tace(matrix: list[list]):
+def matrix_trace(matrix: list[list]):
     # TODO: insert exeption if its not a square matrix
     trace = 0
     for i in range(len(matrix)):
         trace += matrix[i][i]
     return trace
+
+
+def matrix_product(matrixA, matrixB):
+    rows = len(matrixA)
+    columns = len(matrixB[0])
+    new_matrix = []
+    for i in range(rows):
+        new_matrix.append([None] * columns)
+
+    i = 0
+    j = 0
+    for k in range(len(matrixA)):
+        l = 0
+        while l < len(matrixB[0]):
+            m = 0
+            value = 0
+            while m < len(matrixB):
+                value += matrixA[k][m] * matrixB[m][l]
+                m += 1
+            l +=1
+            new_matrix[i][j] = value
+            j += 1
+        i += 1
+        j = 0
+    return new_matrix
+
+
+
