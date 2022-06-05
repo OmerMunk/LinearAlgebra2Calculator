@@ -1,7 +1,7 @@
 from Exceptions.vector_exceptions import DifferentVectorsLength
 
 
-def inner_product(vector1: list, vector2: list):
+def standart_inner_product(vector1: list, vector2: list):
     length = len(vector1)
     if len(vector2) != length:
         raise DifferentVectorsLength
