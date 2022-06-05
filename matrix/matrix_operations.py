@@ -1,10 +1,12 @@
 from utils.swaps import matrix_elements_swap
 
+
 def print_matrix(matrix):
     for i in range(len(matrix)):
         for j in range(len(matrix[0])):
             print(f"{matrix[i][j]}\t", end="")
         print("\n")
+
 
 def square_matrix_transpose(matrix: list[list]):
     i = 0
@@ -31,5 +33,16 @@ def non_square_matrix_transpose(matrix: list[list]):
             new_matrix[j][i] = matrix[i][j]
             j += 1
         i += 1
-
     return new_matrix
+
+
+def matrix_transpose(matrix: list[list]):
+    return square_matrix_transpose(matrix) if len(matrix) == len(matrix[0]) else non_square_matrix_transpose(matrix)
+
+
+def matrix_tace(matrix: list[list]):
+    # TODO: insert exeption if its not a square matrix
+    trace = 0
+    for i in range(len(matrix)):
+        trace += matrix[i][i]
+    return trace
